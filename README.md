@@ -9,6 +9,7 @@
 - [Usage](#usage)
   - [Examples](#examples)
 - [Support](#support)
+- [References](#references)
 
 ---
 
@@ -97,3 +98,9 @@ The Flist CLI provides several commands:
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Mik-TF/flist_cli).
+
+
+## References
+
+- This work is done for ThreeFold in collaboration with Scott Yeager, see [this story](https://git.ourworld.tf/tfgrid/circle_engineering/issues/97) for context.
+- The script is based on Scott's first version [here](https://gist.github.com/scottyeager/2c5826e0aa952ddc7a05080b60efdbbe).
