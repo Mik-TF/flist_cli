@@ -1,15 +1,17 @@
-<h1> Flist CLI </h1>
+# Flist CLI
 
-<h2>Table of Contents</h2>
+## Table of Contents
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Clean Up](#clean-up)
-- [Usage](#usage)
-  - [Examples](#examples)
-- [Support](#support)
-- [References](#references)
+- [Flist CLI](#flist-cli)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Uninstallation](#uninstallation)
+  - [Usage](#usage)
+    - [Examples](#examples)
+  - [Support](#support)
+  - [References](#references)
 
 ---
 
@@ -20,9 +22,8 @@ Flist CLI is a command-line tool that simplifies the process of turning Dockerfi
 ## Prerequisites
 
 - Ensure you have Docker installed and configured on your system.
-- Install Makefile to use the `make` commands.
 - You'll need a Docker Hub account and a TF Flist Hub token to use this tool.
-- The tool stores your TF Flist Hub token in `~/.token`. Keep this file secure.
+- The tool stores your TF Flist Hub token in `~/.config/tfhubtoken`. Keep this file secure.
   - You can run `flist logout` to remove this file and log out from Docker.
 
 ## Installation
@@ -37,24 +38,26 @@ Flist CLI is a command-line tool that simplifies the process of turning Dockerfi
    cd flist_cli
    ```
 
-3. Build the tool:
+3. Install the tool:
    ```
-   make build
+   bash flist.sh install
    ```
 
-   This will create an executable named `flist` as a symlink to the Flist CLI script. 
-   
-## Clean Up
-   
-- You can clean up the environment and remove the tool with `make clean`.
-    ```
-    make clean
-    ```
+   This will create an executable named `flist` in `/usr/local/bin/`.
+
+## Uninstallation
+
+To uninstall the Flist CLI, run:
+```
+flist uninstall
+```
 
 ## Usage
 
 The Flist CLI provides several commands:
 
+- `install`: Install the Flist CLI
+- `uninstall`: Uninstall the Flist CLI
 - `login`: Log in to Docker Hub and save the Flist Hub token
 - `logout`: Log out of Docker Hub and remove the Flist Hub token
 - `push`: Build and push a Docker image to Docker Hub, then convert and push it as an flist to Flist Hub
@@ -64,41 +67,49 @@ The Flist CLI provides several commands:
 
 ### Examples
 
-1. Log in:
+1. Install the CLI:
+   ```
+   bash flist.sh install
+   ```
+
+2. Log in:
    ```
    flist login
    ```
 
-2. Push a Docker image and convert it to an flist:
+3. Push a Docker image and convert it to an flist:
    ```
    flist push myimage:latest
    ```
 
-3. Delete an flist:
+4. Delete an flist:
    ```
    flist delete myflist.flist
    ```
 
-4. Rename an flist:
+5. Rename an flist:
    ```
    flist rename old_name.flist new_name.flist
    ```
 
-5. Log out:
+6. Log out:
    ```
    flist logout
    ```
 
-6. Display help information:
+7. Display help information:
    ```
    flist help
    ```
 
+8. Uninstall the CLI:
+   ```
+   flist uninstall
+   ```
 
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Mik-TF/flist_cli).
-
 
 ## References
 
