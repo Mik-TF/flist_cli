@@ -1,7 +1,31 @@
 #!/bin/bash
-# Filename flist.sh
+# Filename: flist.sh
 
 TOKEN_FILE="$HOME/.config/tfhubtoken"
+BINARY_LOCATION="/usr/local/bin/flist"
+
+install() {
+    echo "Installing Flist CLI..."
+    if [ -f "$0" ]; then
+        sudo cp "$0" "$BINARY_LOCATION"
+        sudo chmod +x "$BINARY_LOCATION"
+        echo "Flist CLI has been installed to $BINARY_LOCATION"
+        echo "You can now use it by running 'flist help'"
+    else
+        echo "Error: Cannot find the script file"
+        exit 1
+    fi
+}
+
+uninstall() {
+    echo "Uninstalling Flist CLI..."
+    if [ -f "$BINARY_LOCATION" ]; then
+        sudo rm "$BINARY_LOCATION"
+        echo "Flist CLI has been removed from $BINARY_LOCATION"
+    else
+        echo "Flist CLI is not installed at $BINARY_LOCATION"
+    fi
+}
 
 login() {
     local token_exists=false
@@ -155,14 +179,18 @@ $(tput sgr0)
 This tool turns Dockerfiles and Docker images directly into Flist on the TF Flist Hub, passing by the Docker Hub.
 
 $(tput bold)Available commands:$(tput sgr0)
-  $(tput setaf 4)login$(tput sgr0)  - Log in to Docker Hub and save the Flist Hub token
-  $(tput setaf 4)logout$(tput sgr0) - Log out of Docker Hub and remove the Flist Hub token
-  $(tput setaf 4)push$(tput sgr0)   - Build and push a Docker image to Docker Hub, then convert and push it as an flist to Flist Hub
-  $(tput setaf 4)delete$(tput sgr0) - Delete an flist from Flist Hub
-  $(tput setaf 4)rename$(tput sgr0) - Rename an flist in Flist Hub
-  $(tput setaf 4)help$(tput sgr0)   - Display this help message
+  $(tput setaf 4)install$(tput sgr0)   - Install the Flist CLI
+  $(tput setaf 4)uninstall$(tput sgr0) - Uninstall the Flist CLI
+  $(tput setaf 4)login$(tput sgr0)     - Log in to Docker Hub and save the Flist Hub token
+  $(tput setaf 4)logout$(tput sgr0)    - Log out of Docker Hub and remove the Flist Hub token
+  $(tput setaf 4)push$(tput sgr0)      - Build and push a Docker image to Docker Hub, then convert and push it as an flist to Flist Hub
+  $(tput setaf 4)delete$(tput sgr0)    - Delete an flist from Flist Hub
+  $(tput setaf 4)rename$(tput sgr0)    - Rename an flist in Flist Hub
+  $(tput setaf 4)help$(tput sgr0)      - Display this help message
 
 $(tput bold)Usage:$(tput sgr0)
+  flist install
+  flist uninstall
   flist login
   flist logout
   flist push <image>:<tag>
@@ -174,6 +202,12 @@ EOF
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     case "$1" in
+        install)
+            install
+            ;;
+        uninstall)
+            uninstall
+            ;;
         push)
             if [ $# -eq 2 ]; then
                 push "$2"
