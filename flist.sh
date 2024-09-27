@@ -50,8 +50,6 @@ login() {
         read -p "Please enter your tfhub token: " tfhub_token
         echo "$tfhub_token" > "$TOKEN_FILE"
         echo "Token saved in $TOKEN_FILE."
-        echo "To use this token in other sessions, add the following line to your ~/.bashrc or ~/.bash_profile:"
-        echo "export TOKEN=\$(cat $TOKEN_FILE)"
     else
         echo "Your Flist Hub token is already saved."
     fi
