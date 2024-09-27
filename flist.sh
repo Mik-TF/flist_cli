@@ -1,7 +1,7 @@
 #!/bin/bash
 # Filename flist.sh
 
-TOKEN_FILE="$HOME/.token"
+TOKEN_FILE="$HOME/.config/tfhubtoken"
 
 login() {
     local token_exists=false
