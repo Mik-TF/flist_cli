@@ -1,17 +1,15 @@
-# Flist CLI
+<h1> Flist CLI </h1>
 
-## Table of Contents
+<h2> Table of Contents </h2>
 
-- [Flist CLI](#flist-cli)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Uninstallation](#uninstallation)
-  - [Usage](#usage)
-    - [Examples](#examples)
-  - [Support](#support)
-  - [References](#references)
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Uninstallation](#uninstallation)
+- [Usage](#usage)
+  - [Examples](#examples)
+- [Support](#support)
+- [References](#references)
 
 ---
 
@@ -21,6 +19,7 @@ Flist CLI is a command-line tool that simplifies the process of turning Dockerfi
 
 ## Prerequisites
 
+- This tool has been built for Linux Ubuntu.
 - Ensure you have Docker installed and configured on your system.
 - You'll need a Docker Hub account and a TF Flist Hub token to use this tool.
 - The tool stores your TF Flist Hub token in `~/.config/tfhubtoken`. Keep this file secure.
@@ -28,26 +27,20 @@ Flist CLI is a command-line tool that simplifies the process of turning Dockerfi
 
 ## Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/Mik-TF/flist_cli.git
-   ```
+To install the Flist CLI, clone the repository, navigate to the cloned directory and install the tool:
 
-2. Navigate to the cloned directory:
-   ```
-   cd flist_cli
-   ```
+```
+git clone https://github.com/Mik-TF/flist_cli.git
+cd flist_cli
+bash flist.sh install
+```
 
-3. Install the tool:
-   ```
-   bash flist.sh install
-   ```
-
-   This will create an executable named `flist` in `/usr/local/bin/`.
+This will create an executable named `flist` in `/usr/local/bin/`.
 
 ## Uninstallation
 
 To uninstall the Flist CLI, run:
+
 ```
 flist uninstall
 ```
